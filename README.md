@@ -2,9 +2,7 @@ In this task, we will see how to achieve micro-stepping in a stepper motor using
 The first approach we take is to figure out how a stepper motor works. The working of a stepper motor is pretty basic. Once you understand how it works, the connections and the codes seem a lot simpler. You can find all the information you need about a stepper motor on the internet. 
 
 STEPPER MOTOR WORKING AND PRINCIPLES:
-
 Stepper motor is a brushless, DC electric motor that divides a full rotation into several equal steps. The motor's position can then be commanded to move and hold at one of these steps without any position sensor for feedback (an open-loop controller), as long as the motor is carefully sized to the application in respect to torque and speed. 
-
 Stepper motors work on the principle of electromagnetism. There is a soft iron or magnetic rotor shaft surrounded by the electromagnetic stators. The rotor and stator have poles which may be teethed or not depending upon the type of stepper. When the stators are energized the rotor moves to align itself along with the stator (in case of a permanent magnet type stepper) or moves to have a minimum gap with the stator (in case of a variable reluctance stepper). This way the stators are energized in a sequence to rotate the stepper motor. Get more information about working of stepper motors through interesting images at the stepper motor Insight.
 
 
