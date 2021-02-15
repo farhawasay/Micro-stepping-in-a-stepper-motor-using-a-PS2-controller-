@@ -311,7 +311,7 @@ Next, we start connecting all of our components (the stepper motor, the motor dr
 
 HARDWARE CONNECTIONS - The a4988 driver has 16 pins.
 
-                   ![A4988-Stepper-Motor-Driver-Pinout](https://user-images.githubusercontent.com/79084266/107937252-b0b8f680-6fa9-11eb-9e66-a0867b6ecb8b.png)
+   ![A4988-Stepper-Motor-Driver-Pinout](https://user-images.githubusercontent.com/79084266/107937252-b0b8f680-6fa9-11eb-9e66-a0867b6ecb8b.png)
 
 · VMOT AND GND are the power pins for external power supply. 
 
