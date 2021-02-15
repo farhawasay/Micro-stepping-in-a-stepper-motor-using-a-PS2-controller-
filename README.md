@@ -16,67 +16,67 @@ Then, we move on to coding. The code carries all the commands given to the Ardui
 
 CODE:
 
-#include <PS2X_lib.h>  //for v1.6
-//defining the diffent ps2 pins and the pins numbers of the mega board which are going to be connected respectively
-#define PS2_DAT        53
-#define PS2_CMD        51
-#define PS2_SEL        49
-#define PS2_CLK        47
-#define pressures   false
-#define rumble      false
+  #include <PS2X_lib.h>  //for v1.6
+  //defining the diffent ps2 pins and the pins numbers of the mega board which are going to be connected respectively
+  #define PS2_DAT        53
+  #define PS2_CMD        51
+  #define PS2_SEL        49
+  #define PS2_CLK        47
+  #define pressures   false
+  #define rumble      false
+  
+  PS2X ps2x;                                                //name of the controller we are using
+  int error = 0;
+  byte type = 0;
+  byte vibrate = 0;
+  const int Step = 12;                                      //defining the step pin of the stepper motor
+  const int dir = 10;                                       //defining the direction pin of the stepper motor
 
-PS2X ps2x;                                                //name of the controller we are using
-int error = 0;
-byte type = 0;
-byte vibrate = 0;
-const int Step = 12;                                      //defining the step pin of the stepper motor
-const int dir = 10;                                       //defining the direction pin of the stepper motor
+  // ms1,ms2,ms3 are the variables that changes the modes of the micro-stepping
+  const int ms1 = 8;
+  const int ms2 = 7;
+  const int ms3 = 2;
 
-// ms1,ms2,ms3 are the variables that changes the modes of the micro-stepping
-const int ms1 = 8;
-const int ms2 = 7;
-const int ms3 = 2;
+  int  a[16] = {707, 757, 736, 718, 706, 701, 703, 714, 728, 746, 769, 787, 728, 803, 798, 784};    //array of 16 elements consisting of step counts in the  sixteeth-step mode
 
-int  a[16] = {707, 757, 736, 718, 706, 701, 703, 714, 728, 746, 769, 787, 728, 803, 798, 784};                   //array of 16 elements consisting of step counts in the sixteeth-step mode
+  int b[16], c[16], e[16], f[16];                                                                        //defining the new arrays after the change in modes
 
-int b[16], c[16], e[16], f[16];                                                                                  //defining the new arrays after the change in modes
-
-//defining other flags and variables used in the code below
-int x = 0;
-int p = 0, q = 0, r = 0, s = 0, t = 0;
-int d = 0, g = 0, o = 0;
-int i = 0, j = 0, k = 0, l = 0;
-
-int cstep = 0;                                           //defining the current step at which the execution is carried
-int pstep = 0;                                           //defining the previous step from which the motor needs to rotate
-int diff = 0;                                            //difference between the current step and the previous step
-
-
-
-void setup()
-{
-  //Setting the modes of the pins that are connected to the Arduino
-  pinMode(dir, OUTPUT);
-  pinMode(Step, OUTPUT);
-  pinMode(ms1, OUTPUT);
-  pinMode(ms2, OUTPUT);
-  pinMode(ms3, OUTPUT);
-
-  Serial.begin(9600);
-  Serial.print(i);
-  error = ps2x.config_gamepad(47, 51, 49, 53, pressures, rumble);
-}
-
-void loop()
-{
-  if (error == 0)
+  //defining other flags and variables used in the code below
+  int x = 0;
+  int p = 0, q = 0, r = 0, s = 0, t = 0;
+  int d = 0, g = 0, o = 0;
+  int i = 0, j = 0, k = 0, l = 0;
+  
+  int cstep = 0;                                           //defining the current step at which the execution is carried
+  int pstep = 0;                                           //defining the previous step from which the motor needs to rotate
+  int diff = 0;                                            //difference between the current step and the previous step
+  
+  
+  
+  void setup()
   {
-    ps2x.read_gamepad(false, vibrate);
+    //Setting the modes of the pins that are connected to the Arduino
+    pinMode(dir, OUTPUT);
+    pinMode(Step, OUTPUT);
+    pinMode(ms1, OUTPUT);
+    pinMode(ms2, OUTPUT);
+    pinMode(ms3, OUTPUT);
+  
+    Serial.begin(9600);
+    Serial.print(i);
+    error = ps2x.config_gamepad(47, 51, 49, 53, pressures, rumble);
+  }
+  
+  void loop()
+  {
+    if (error == 0)
+    {
+      ps2x.read_gamepad(false, vibrate);
 
-    /*----------------------------------------------------------------------------------------*/
-
-    d += (ps2x.ButtonPressed(PSB_CROSS));                                         //the code to be executed when the cross button is pressed on the PS2
-
+      /*----------------------------------------------------------------------------------------*/
+  
+      d += (ps2x.ButtonPressed(PSB_CROSS));                                         //the code to be executed when the cross button is pressed on the PS2
+  
     if (d % 5 == 1)                                                               //the code to be executed when the cross button is pressed once
     {
       //the logics of the pins for the mode to be set on full-step
