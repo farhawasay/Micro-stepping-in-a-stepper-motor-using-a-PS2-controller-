@@ -7,6 +7,7 @@ Stepper motor is a brushless, DC electric motor that divides a full rotation int
 Stepper motors work on the principle of electromagnetism. There is a soft iron or magnetic rotor shaft surrounded by the electromagnetic stators. The rotor and stator have poles which may be teethed or not depending upon the type of stepper. When the stators are energized the rotor moves to align itself along with the stator (in case of a permanent magnet type stepper) or moves to have a minimum gap with the stator (in case of a variable reluctance stepper). This way the stators are energized in a sequence to rotate the stepper motor. Get more information about working of stepper motors through interesting images at the stepper motor Insight.
 
 
+
 Next, we select a suitable motor driver for our stepper motor. The motor drivers act as an interface between the motors and the control circuits. Motors require high amount of current whereas the controller circuit works on low current signals. So, the function of motor drivers is to take a low-current control signal and then turn it into a higher-current signal that can drive a motor. Various motor drivers have different modes and mode-set-ups for micro-stepping. 
 
 We will be using the A4988 motor driver for our NEMA 17 stepper motor. We chose this specific model for our task as required. This particular model of the motor driver supports five different step revolutions; namely full-step, half-step, quarter-step, eighth-step and sixteenth-step.
