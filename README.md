@@ -310,12 +310,21 @@ CODE:
 Next, we start connecting all of our components (the stepper motor, the motor driver, the Arduino board and the PS2 controller) with the help of wires and boards. 
 
 HARDWARE CONNECTIONS - The a4988 driver has 16 pins.
+
 ![A4988-Stepper-Motor-Driver-Pinout](https://user-images.githubusercontent.com/79084266/107937252-b0b8f680-6fa9-11eb-9e66-a0867b6ecb8b.png)
+
 · VMOT AND GND are the power pins for external power supply.
+
 · 1A, 1B, 2A and 2B are the pins connected to the stepper motor. 1A and 1B pins are connected to the pair of coils which are shorted internally in the stepper motor.
+
 · VDD and GND pins are connected to the Arduino’s VCC 5V pin and GND pin.
+
 · Enable key is connected to PWM pin.
+
 · MS1 MS2 MS3 are micro-stepping pins and set low or high based on the stepping mode.
+
 · RESET AND SLEEP pins are externally shorted with jumper wire.
+
 · Step pin is connected to Arduino PWM third pin.
+
 · DIR pin is connected to Arduino PWM fourth pin. It controls the direction of the stepper motor. if low forward direction and if high backward direction.
